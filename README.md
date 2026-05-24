@@ -1,51 +1,110 @@
-# SQL Data-Warehouse-Project
+# 🏛️ SQL Data Warehouse Project
 
-Welcome to the Data Warehouse and Analytics Project repository! 🚀
+> A fully implemented modern data warehouse built on SQL Server — integrating dual source systems through a Medallion Architecture and delivering SQL-based analytics across sales, customers, and products.
 
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+![SQL](https://img.shields.io/badge/SQL-T--SQL-CC2927?logo=microsoftsqlserver&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-Data%20Warehouse-003B5C?logo=microsoftsqlserver&logoColor=white)
+![Architecture](https://img.shields.io/badge/Architecture-Medallion-gold)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+---
+
+## 📌 Overview
+
+An end-to-end data warehousing solution that consolidates data from two source systems — **ERP** and **CRM** — into a single, analytics-ready warehouse on SQL Server. The project covers the full data engineering lifecycle: ingestion, cleansing, integration, modelling, and reporting.
+
+Built to mirror real industry workflows, with a clean **Bronze → Silver → Gold** medallion architecture and a star schema Gold layer optimized for analytical queries.
+
+---
+
+## 🏗️ Data Architecture
+
+```
+┌─────────────┐     ┌─────────────┐
+│  ERP (CSV)  │     │  CRM (CSV)  │
+└──────┬──────┘     └──────┬──────┘
+       └─────────┬──────────┘
+                 ▼
+        🥉 Bronze Layer
+        Raw ingestion — no transformation
+                 ▼
+        🥈 Silver Layer
+        Cleansing · Standardization · Normalization
+                 ▼
+        🥇 Gold Layer
+        Star Schema — Fact & Dimension Tables
+                 ▼
+        📊 SQL Analytics & Reporting
+```
+
+| Layer | Role |
+|-------|------|
+| 🥉 **Bronze** | Raw CSV data loaded as-is into SQL Server — full fidelity source preservation |
+| 🥈 **Silver** | Data quality fixes, type normalization, deduplication, and standardization |
+| 🥇 **Gold** | Business-ready star schema powering all analytical queries |
+
+---
+
+## ✅ What's Built
+
+### 🔄 ETL Pipeline
+- Ingestion from two independent source systems (ERP + CRM CSV files)
+- Data quality resolution: nulls, type mismatches, duplicates, inconsistent codes
+- Integration of both sources into a unified, conformed data model
+
+### 🗃️ Data Modelling — Star Schema
+- **Fact Table** — transactional sales records
+- **Dimension Tables** — customers, products, and supporting attributes
+- Optimized for fast analytical queries and BI consumption
+
+### 📊 SQL Analytics & Reporting
+Three analytical domains fully implemented:
+
+| Domain | Insights Delivered |
+|--------|-------------------|
+| 👤 **Customer Behavior** | Purchase frequency, customer segmentation, lifetime value patterns |
+| 📦 **Product Performance** | Top/bottom performers, category contribution, sales volume trends |
+| 📈 **Sales Trends** | Period-over-period growth, revenue patterns, time-based aggregations |
 
 
-# Data Architecture
-The data architecture for this project follows Medallion Architecture Bronze, Silver, and Gold layers.
 
-1. Bronze Layer: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
+---
 
-2. Silver Layer: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
+## 🛠️ Tech Stack
 
-3. Gold Layer: Houses business-ready data modeled into a star schema required for reporting and analytics.
+| Category | Tool |
+|----------|------|
+| Query Language | T-SQL (Transact-SQL) |
+| Database Engine | Microsoft SQL Server |
+| Architecture Pattern | Medallion (Bronze / Silver / Gold) |
+| Data Modelling | Star Schema (Fact + Dimensions) |
+| IDE | SSMS / Azure Data Studio |
 
+---
 
-# Project Overview
-This project involves:
+## 🎯 Business Value
 
-Data Architecture: Designing a Modern Data Warehouse Using Medallion Architecture Bronze, Silver, and Gold layers.
+This warehouse enables stakeholders to:
+- Query **clean, integrated data** from two previously siloed systems
+- Analyse **sales trends, customer segments, and product performance** without touching raw data
+- Trust results backed by **automated quality tests** across every pipeline layer
 
-ETL Pipelines: Extracting, transforming, and loading data from source systems into the warehouse.
+---
 
-Data Modeling: Developing fact and dimension tables optimized for analytical queries.
+## 👤 Author
 
-Analytics & Reporting: Creating SQL-based reports and dashboards for actionable insights.
+**Azli Khan**
+Aspiring Data Engineer | SQL · Data Warehousing · ETL · Analytics
 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?logo=linkedin)](https://www.linkedin.com/in/azli-khan07/)
+[![GitHub](https://img.shields.io/badge/GitHub-Azli45-181717?logo=github)](https://github.com/Azli45)
 
-# Project Requirements
-Building the Data Warehouse (Data Engineering)
+---
 
-# Objective
-Developed a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
+## 📄 License
 
-Specifications
-Data Sources: Import data from two source systems (ERP and CRM) provided as CSV files.
-Data Quality: Cleanse and resolve data quality issues prior to analysis.
-Integration: Combine both sources into a single, user-friendly data model designed for analytical queries.
-Scope: Focus on the latest dataset only; historization of data is not required.
-Documentation: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
-BI: Analytics & Reporting (Data Analysis)
-Objective
-Develop SQL-based analytics to deliver detailed insights into:
+Licensed under the [MIT License](LICENSE).
 
-Customer Behavior
-Product Performance
-Sales Trends
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.
+---
 
-
+> ⭐ Found this useful? Give it a star!
